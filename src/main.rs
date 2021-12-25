@@ -1,10 +1,13 @@
-// rust does not see files and subfiles but modules and submodules
-// create a tree of "pub mod file_name" that exposes modules to outer ones
-mod types;
-// use keyword uses a resource directly
-use types::arrays;
+mod the_rust_book;
+// mod misc;
 
 fn main() {
+    // ======== THE RUST BOOK ========
+    the_rust_book::guessing_game::run();
+
+
+    
+    // ======== MISCELLANEOUS ========
     // print::run();
 
     // vars::run();
@@ -15,5 +18,5 @@ fn main() {
 
     // tuples::run();
 
-    arrays::run();
+    // arrays::run();
 }
