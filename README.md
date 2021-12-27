@@ -58,39 +58,64 @@ cargo build --release
 
 ## Types
 
--   statically typed, must know type at compile time
--   compiler can usually infer type from usage
+-   Statically typed, must know type at compile time
+-   Compiler can usually infer type from usage
 
 ## Variables
 
 -   Default immutable
 -   Make mutable with `mut`
--   holds primitive data or references to data
--   can shadow variables by declaring variables with the same name (can change type)
+-   Holds primitive data or references to data
+-   Can shadow variables by declaring variables with the same name (can change type)
+
+## Ownership
+
+-   Each value in Rust has a variable that’s called its owner.
+-   There can only be one owner at a time.
+-   When the owner goes out of scope, the value will be dropped (`drop` is called).
+-   Assigning a value to another variable moves ownership (no shallow copies).
+    -   Only one pointer to a piece of data
 
 ## Modules
 
--   rust treats files and subfiles as modules and sub-modules
+-   Rust treats files and subfiles as modules and sub-modules
 
--   cannot reference files directly with simple imports
--   need to create a tree of modules (similar to barrel export in javascript)
--   use the `mod` keyword to include a module and `pub` keyword to make it visibless
+-   Cannot reference files directly with simple imports
+-   Need to create a tree of modules (similar to barrel export in javascript)
+-   Use the `mod` keyword to include a module and `pub` keyword to make it visible
 
 ```
 -- human.rs
-    (mod head; mod upper_body; mod lower_body;)
     -- head.rs
-        (mod eyes; mod nose; mod mouth;)
     -- head
         -- eyes.rs
         -- nose.rs
         mouth.rs
     -- upperbody.rs
-        (mod chest; mod stomach;)
     -- upperbody
         -- chest.rs
         -- stomach.rs
     -- lowerbody.rs
+    -- lowerbody
+        -- legs.rs
+        -- mod.rs
 ```
 
--   or modules can be declared by a file `mod.rs` in a folder and the compiler will look in the `folder/mod.rs` file to use as contents for the module declaration of `folder`
+-   Modules can also be declared by a file `mod.rs` in a folder and the compiler will look in the `folder/mod.rs` file to use as contents for the module declaration of `folder`
+
+```
+-- human.rs
+    -- head.rs
+    -- head
+        -- eyes.rs
+        -- nose.rs
+        -- mouth.rs
+        -- mod.rs
+    -- upperbody
+        -- chest.rs
+        -- stomach.rs
+        -- mod.rs
+    -- lowerbody
+        -- legs.rs
+        -- mod.rs
+```
