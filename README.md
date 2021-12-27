@@ -76,6 +76,17 @@ cargo build --release
 -   Assigning a value to another variable moves ownership (no shallow copies).
     -   Only one pointer to a piece of data
 
+## References
+
+-   References allow us to refer to a value but not own it.
+-   & the ampersand syntax let us create a reference.
+-   The action of creating a reference is called "borrowing".
+-   References are immutable by default.
+-   Can make references mutable with the mut keyword `&mut`.
+-   Can only have one mutable reference to a piece of data at a time.
+-   Cannot have both mutable and immutable references (either some number of immutable reference(s) or a single mutable reference).
+-   Compiler guaranteees that references will never be dangling
+
 ## Modules
 
 -   Rust treats files and subfiles as modules and sub-modules
