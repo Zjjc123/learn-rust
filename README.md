@@ -66,6 +66,7 @@ cargo build --release
 -   Default immutable
 -   Make mutable with `mut`
 -   holds primitive data or references to data
+-   can shadow variables by declaring variables with the same name (can change type)
 
 ## Modules
 
