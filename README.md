@@ -87,10 +87,15 @@ cargo build --release
 -   Cannot have both mutable and immutable references (either some number of immutable reference(s) or a single mutable reference).
 -   Compiler guaranteees that references will never be dangling
 
+## Slices
+
+-   create a slice by specifying [starting_index..ending_index]
+-   slices store a reference to the first element and a length
+-   string literal are slices (of type &str)
+
 ## Modules
 
 -   Rust treats files and subfiles as modules and sub-modules
-
 -   Cannot reference files directly with simple imports
 -   Need to create a tree of modules (similar to barrel export in javascript)
 -   Use the `mod` keyword to include a module and `pub` keyword to make it visible
