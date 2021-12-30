@@ -89,9 +89,20 @@ cargo build --release
 
 ## Slices
 
--   create a slice by specifying [starting_index..ending_index]
--   slices store a reference to the first element and a length
--   string literal are slices (of type &str)
+-   Create a slice by specifying [starting_index..ending_index]
+-   Slices store a reference to the first element and a length
+-   String literal are slices (of type &str)
+
+## Structs
+
+-   Create custom meaningful types
+-   Associated pieces of data and can name each piece
+
+## Associated Functions (Methods)
+
+-   Can define functions that associate with type with the `impl` block
+-   Methods are associated function that have self as their first parameter
+-   Associated functions without self are of ften used for constructors that will return a new instance of the struct
 
 ## Modules
 
