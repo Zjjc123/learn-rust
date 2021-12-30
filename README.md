@@ -70,21 +70,21 @@ cargo build --release
 
 ## Ownership
 
--   Each value in Rust has a variable that’s called its owner.
--   There can only be one owner at a time.
--   When the owner goes out of scope, the value will be dropped (`drop` is called).
--   Assigning a value to another variable moves ownership (no shallow copies).
+-   Each value in Rust has a variable that’s called its owner
+-   There can only be one owner at a time
+-   When the owner goes out of scope, the value will be dropped (`drop` is called)
+-   Assigning a value to another variable moves ownership (no shallow copies)
     -   Only one pointer to a piece of data
 
 ## References
 
--   References allow us to refer to a value but not own it.
--   & the ampersand syntax let us create a reference.
--   The action of creating a reference is called "borrowing".
--   References are immutable by default.
--   Can make references mutable with the mut keyword `&mut`.
--   Can only have one mutable reference to a piece of data at a time.
--   Cannot have both mutable and immutable references (either some number of immutable reference(s) or a single mutable reference).
+-   References allow us to refer to a value but not own it
+-   & the ampersand syntax let us create a reference
+-   The action of creating a reference is called "borrowing"
+-   References are immutable by default
+-   Can make references mutable with the mut keyword `&mut`
+-   Can only have one mutable reference to a piece of data at a time
+-   Cannot have both mutable and immutable references (either some number of immutable reference(s) or a single mutable reference)
 -   Compiler guaranteees that references will never be dangling
 
 ## Slices
@@ -93,16 +93,37 @@ cargo build --release
 -   Slices store a reference to the first element and a length
 -   String literal are slices (of type &str)
 
+```rust
+let a = [1, 2, 3, 4, 5];
+let slice = &a[1..3];
+```
+
 ## Structs
 
 -   Create custom meaningful types
 -   Associated pieces of data and can name each piece
+
+```rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+```
 
 ## Associated Functions (Methods)
 
 -   Can define functions that associate with type with the `impl` block
 -   Methods are associated function that have self as their first parameter
 -   Associated functions without self are of ften used for constructors that will return a new instance of the struct
+-   Rust has a automatic referencing and dereferencing
+
+```rust
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+```
 
 ## Modules
 
